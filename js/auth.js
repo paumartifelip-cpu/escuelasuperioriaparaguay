@@ -8,7 +8,8 @@
   // SHA-256 de las contraseñas válidas. Para añadir o quitar una: edita esta lista.
   var PASSWORD_HASHES = [
     '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4',
-    '09dfc4a807d96623e89cd60f6475745dc4c2ff810516f6bd21cf2db5c60d8486'
+    '09dfc4a807d96623e89cd60f6475745dc4c2ff810516f6bd21cf2db5c60d8486',
+    '080db1345b5f5746ccb69f3e7fc047dd8fcc8293f8c950889ae38e216b119e42'
   ];
   var PASSWORD_PLAIN_FALLBACK = '1234'; // solo si el navegador no soporta crypto.subtle
 
