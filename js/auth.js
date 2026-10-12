@@ -5,8 +5,11 @@
   'use strict';
 
   var STORAGE_KEY = 'esia_auth_v1';
-  // SHA-256 de la única contraseña válida. Para cambiarla: reemplaza este hash.
-  var PASSWORD_HASH = '881851a5d446995a03e7a4460205063afa45c7e592139854348684a0982cb082';
+  // SHA-256 de las contraseñas válidas. Para añadir o quitar una: edita esta lista.
+  var PASSWORD_HASHES = [
+    '881851a5d446995a03e7a4460205063afa45c7e592139854348684a0982cb082',
+    '67774efe088078d89d4001e16cf29c06ee1c8337c92abbb4b4b2a7edfc4c72b8'
+  ];
   var PASSWORD_PLAIN_FALLBACK = '4cckwnbafumxxd3zx4z5'; // solo si el navegador no soporta crypto.subtle
 
   function safeSession() {
@@ -25,7 +28,7 @@
 
   function check(password) {
     return sha256Hex(password).then(function (hex) {
-      return hex === null ? password === PASSWORD_PLAIN_FALLBACK : hex === PASSWORD_HASH;
+      return hex === null ? password === PASSWORD_PLAIN_FALLBACK : PASSWORD_HASHES.indexOf(hex) !== -1;
     });
   }
 
